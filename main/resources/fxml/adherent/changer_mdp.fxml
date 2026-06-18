@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.adherent.ChangerMdpController"
+      styleClass="page-content" spacing="20">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <VBox spacing="2">
+        <Label text="Changer le mot de passe" styleClass="page-title"/>
+        <Label text="Modifiez votre mot de passe de connexion" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+
+    <VBox styleClass="table-card" spacing="18" maxWidth="500">
+        <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+        <Label text="🔒  Sécurité du compte" styleClass="section-title"/>
+        <Separator/>
+
+        <VBox spacing="6">
+            <Label text="Ancien mot de passe" styleClass="field-label"/>
+            <PasswordField fx:id="ancienMdpField" promptText="Votre mot de passe actuel" styleClass="input-field"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Nouveau mot de passe" styleClass="field-label"/>
+            <PasswordField fx:id="nouveauMdpField" promptText="Minimum 6 caractères" styleClass="input-field"/>
+        </VBox>
+
+        <VBox spacing="6">
+            <Label text="Confirmer le nouveau mot de passe" styleClass="field-label"/>
+            <PasswordField fx:id="confirmMdpField" promptText="Répétez le nouveau mot de passe" styleClass="input-field"/>
+            <!-- Indicateur temps réel -->
+            <Label fx:id="matchIndicator" text="" style="-fx-font-size:12px;" visible="false" managed="false"/>
+        </VBox>
+
+        <!-- Message succès/erreur -->
+        <Label fx:id="msgLabel" text="" wrapText="true" style="-fx-font-size:12px;"
+               visible="false" managed="false"/>
+
+        <Button text="🔄  Changer le mot de passe" styleClass="btn-primary"
+                prefWidth="260" onAction="#handleChanger"/>
+    </VBox>
+</VBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.admin.StaffController"
+      styleClass="page-content" spacing="16">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="Équipe / Staff" styleClass="page-title"/>
+        <Label text="Gestion des membres du staff" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Rechercher..." styleClass="search-field" prefWidth="280" onKeyReleased="#handleSearch"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="➕  Ajouter" styleClass="btn-primary" onAction="#handleAdd"/>
+        <Button text="🔄" styleClass="btn-secondary" onAction="#handleRefresh"/>
+    </HBox>
+    <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="staffTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+            <columns>
+                <TableColumn fx:id="colNom"     text="Nom complet" prefWidth="210"/>
+                <TableColumn fx:id="colEmail"   text="Email"       prefWidth="210"/>
+                <TableColumn fx:id="colRole"    text="Rôle"        prefWidth="140"/>
+                <TableColumn fx:id="colStatut"  text="Statut"      prefWidth="120"/>
+                <TableColumn fx:id="colActions" text="Actions"     prefWidth="280"/>
+            </columns>
+            <placeholder><Label text="Aucun membre du staff." styleClass="empty-label"/></placeholder>
+        </TableView>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="countLabel" text="" styleClass="count-label"/>
+    </HBox>
+</VBox>

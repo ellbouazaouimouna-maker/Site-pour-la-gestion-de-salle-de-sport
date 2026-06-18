@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.admin.AdminDashboardController" styleClass="main-layout">
+    <left>
+        <VBox styleClass="sidebar" prefWidth="240">
+            <VBox styleClass="sidebar-brand" spacing="4">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="A" styleClass="sidebar-avatar-brand"/>
+                    <VBox spacing="2">
+                        <Label text="Admin Panel" styleClass="sidebar-logo"/>
+                        <Label text="Gym Management" styleClass="sidebar-role"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            <VBox styleClass="sidebar-nav" VBox.vgrow="ALWAYS" spacing="4">
+                <Button fx:id="btnDashboard" text="  📊   Tableau de bord" styleClass="nav-item,nav-active" maxWidth="Infinity" onAction="#showDashboard"/>
+                <Button fx:id="btnAdherents" text="  👥   Gestion Adhérents" styleClass="nav-item" maxWidth="Infinity" onAction="#showAdherents"/>
+                <Button fx:id="btnPaiements" text="  💳   Gestion Paiements" styleClass="nav-item" maxWidth="Infinity" onAction="#showPaiements"/>
+                <Button fx:id="btnActivites" text="  📅   Gestion Activités" styleClass="nav-item" maxWidth="Infinity" onAction="#showActivites"/>
+                <Separator style="-fx-padding: 4 0;"/>
+                <Button fx:id="btnEnAttente" text="  ⏳   En attente" styleClass="nav-item" maxWidth="Infinity" onAction="#showEnAttente"/>
+                <Button fx:id="btnStaff" text="  🔧   Équipe" styleClass="nav-item" maxWidth="Infinity" onAction="#showStaff"/>
+                <Button fx:id="btnArchives" text="  📦   Archives" styleClass="nav-item" maxWidth="Infinity" onAction="#showArchives"/>
+                <Button fx:id="btnParametres" text=" ⚙️ Paramètres" styleClass="nav-item" maxWidth="Infinity" onAction="#showParametres"/>
+            </VBox>
+            <VBox styleClass="sidebar-footer" spacing="10">
+                <Separator/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label fx:id="userAvatarLabel" text="A" styleClass="sidebar-avatar"/>
+                    <VBox>
+                        <Label fx:id="userNameLabel" text="" styleClass="sidebar-user-name"/>
+                        <Label fx:id="userEmailLabel" text="" styleClass="sidebar-user-email"/>
+                    </VBox>
+                </HBox>
+                <Button text="  🚪   Déconnexion" styleClass="btn-logout" maxWidth="Infinity" onAction="#handleLogout"/>
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <VBox styleClass="main-content">
+            <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="16">
+                <Label fx:id="pageTitle" text="Tableau de bord" styleClass="page-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="userRoleLabel" text="Administrateur" style="-fx-text-fill:#64748b; -fx-font-size:13px;"/>
+                <Label fx:id="dateLabel" styleClass="date-label"/>
+            </HBox>
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS" styleClass="content-area"/>
+        </VBox>
+    </center>
+</BorderPane>

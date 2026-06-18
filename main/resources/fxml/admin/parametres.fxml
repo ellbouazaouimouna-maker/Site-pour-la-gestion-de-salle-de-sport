@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.admin.ParametresController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="20" styleClass="page-content">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+        <VBox spacing="2">
+            <Label text="Paramètres" styleClass="page-title"/>
+            <Label text="Configuration du système" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+        </VBox>
+
+        <!-- Infos du club -->
+        <VBox styleClass="table-card" spacing="16">
+            <padding><Insets top="20" right="24" bottom="24" left="24"/></padding>
+            <Label text="🏢  Informations du club" styleClass="section-title"/>
+            <Separator/>
+            <HBox spacing="16">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Nom du club" styleClass="field-label"/>
+                    <TextField fx:id="nomClubField" promptText="Nom du club" styleClass="input-field"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Frais d'inscription (DH)" styleClass="field-label"/>
+                    <TextField fx:id="fraisField" promptText="Ex: 200" styleClass="input-field"/>
+                </VBox>
+            </HBox>
+
+            <!-- Coordonnées — apparaissent sur la page de login -->
+            <VBox spacing="6" style="-fx-background-color:#eff6ff; -fx-background-radius:10; -fx-padding:14;">
+                <Label text="📋  Coordonnées affichées sur la page de connexion" style="-fx-font-size:12px; -fx-font-weight:bold; -fx-text-fill:#1d4ed8;"/>
+                <HBox spacing="16">
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="📞  Téléphone" styleClass="field-label"/>
+                        <TextField fx:id="telephoneClubField" promptText="Ex: 06XXXXXXXX" styleClass="input-field"/>
+                    </VBox>
+                    <VBox spacing="6" HBox.hgrow="ALWAYS">
+                        <Label text="✉  Email de contact" styleClass="field-label"/>
+                        <TextField fx:id="emailClubField" promptText="Ex: contact@club.com" styleClass="input-field"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <CheckBox fx:id="validationAutoCheck" text="Validation automatique des nouveaux comptes"
+                      style="-fx-font-size:13px; -fx-text-fill:#374151;"/>
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button text="💾  Enregistrer" styleClass="btn-primary" onAction="#handleSave"/>
+                <Label fx:id="saveLabel" text="" managed="false" visible="false"
+                       style="-fx-text-fill:#16a34a; -fx-font-size:13px; -fx-font-weight:bold;"/>
+            </HBox>
+        </VBox>
+
+        <!-- Changer mot de passe admin -->
+        <VBox styleClass="table-card" spacing="16">
+            <padding><Insets top="20" right="24" bottom="24" left="24"/></padding>
+            <Label text="🔒  Changer le mot de passe administrateur" styleClass="section-title"/>
+            <Separator/>
+            <HBox spacing="16">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Ancien mot de passe" styleClass="field-label"/>
+                    <PasswordField fx:id="ancienMdpField" promptText="Mot de passe actuel" styleClass="input-field"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Nouveau mot de passe" styleClass="field-label"/>
+                    <PasswordField fx:id="nouveauMdpField" promptText="Nouveau mot de passe" styleClass="input-field"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="Confirmer" styleClass="field-label"/>
+                    <PasswordField fx:id="confirmMdpField" promptText="Confirmer" styleClass="input-field"/>
+                </VBox>
+            </HBox>
+            <Label fx:id="mdpLabel" text="" wrapText="true" managed="false" visible="false"
+                   style="-fx-font-size:12px;"/>
+            <Button text="🔄  Changer le mot de passe" styleClass="btn-warning" onAction="#handleChangerMdp"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

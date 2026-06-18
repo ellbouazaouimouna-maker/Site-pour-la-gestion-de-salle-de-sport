@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.admin.AdminHomeController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="20" styleClass="page-content">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+        <!-- Titre -->
+        <VBox spacing="2">
+            <Label fx:id="welcomeLabel" text="Bonjour 👋" styleClass="page-title"/>
+            <Label text="Administration du système" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+        </VBox>
+
+        <!-- 4 stat cards -->
+        <HBox spacing="16">
+            <VBox styleClass="stat-card-new" HBox.hgrow="ALWAYS" spacing="8" alignment="TOP_LEFT">
+                <Label text="👥" styleClass="stat-icon-new stat-icon-blue"/>
+                <Label fx:id="totalAdherents" text="0" styleClass="stat-number"/>
+                <Label text="Adhérents Actifs" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="stat-card-new" HBox.hgrow="ALWAYS" spacing="8" alignment="TOP_LEFT">
+                <Label text="📦" styleClass="stat-icon-new stat-icon-gray"/>
+                <Label fx:id="paiementsEnAttente" text="0" styleClass="stat-number"/>
+                <Label text="Paiements en attente" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="stat-card-new" HBox.hgrow="ALWAYS" spacing="8" alignment="TOP_LEFT">
+                <Label text="⏳" styleClass="stat-icon-new stat-icon-orange"/>
+                <Label fx:id="enAttenteValidation" text="0" styleClass="stat-number"/>
+                <Label text="Comptes à valider" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="stat-card-new" HBox.hgrow="ALWAYS" spacing="8" alignment="TOP_LEFT">
+                <Label text="📅" styleClass="stat-icon-new stat-icon-green"/>
+                <Label fx:id="totalActivites" text="0" styleClass="stat-number"/>
+                <Label text="Activités Actives" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+
+        <!-- Résumé financier vert -->
+        <VBox styleClass="finance-card" spacing="10">
+            <Label text="Résumé Financier" styleClass="finance-title"/>
+            <HBox spacing="0">
+                <VBox HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Revenus encaissés" styleClass="finance-label"/>
+                    <Label fx:id="totalPaiements" text="0.00 DH" styleClass="finance-amount"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="4">
+                    <Label text="Comptes bloqués" styleClass="finance-label"/>
+                    <Label fx:id="bloques" text="0" styleClass="finance-amount"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Actions rapides -->
+        <Label text="Actions rapides" styleClass="section-title"/>
+        <HBox spacing="16">
+            <VBox styleClass="action-card" HBox.hgrow="ALWAYS" spacing="10" alignment="CENTER">
+                <Label text="➕" styleClass="action-icon"/>
+                <Label text="Nouvel adhérent" styleClass="action-title"/>
+                <Label text="Inscrire un nouveau membre" styleClass="action-desc" wrapText="true"/>
+                <Button text="Ajouter" styleClass="btn-primary" onAction="#quickAddAdherent"/>
+            </VBox>
+            <VBox styleClass="action-card" HBox.hgrow="ALWAYS" spacing="10" alignment="CENTER">
+                <Label text="🏃" styleClass="action-icon"/>
+                <Label text="Nouvelle activité" styleClass="action-title"/>
+                <Label text="Créer une activité sportive" styleClass="action-desc" wrapText="true"/>
+                <Button text="Créer" styleClass="btn-success" onAction="#quickAddActivite"/>
+            </VBox>
+            <VBox styleClass="action-card" HBox.hgrow="ALWAYS" spacing="10" alignment="CENTER">
+                <Label text="💳" styleClass="action-icon"/>
+                <Label text="Enregistrer paiement" styleClass="action-title"/>
+                <Label text="Saisir un paiement reçu" styleClass="action-desc" wrapText="true"/>
+                <Button text="Saisir" styleClass="btn-warning" onAction="#quickPaiement"/>
+            </VBox>
+        </HBox>
+
+        <!-- Derniers adhérents -->
+        <Label text="Derniers adhérents inscrits" styleClass="section-title"/>
+        <VBox styleClass="table-card">
+            <TableView fx:id="recentAdherentsTable" prefHeight="220" styleClass="modern-table">
+                <columns>
+                    <TableColumn fx:id="colNom" text="Nom complet" prefWidth="200"/>
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="210"/>
+                    <TableColumn fx:id="colDate" text="Date d'inscription" prefWidth="160"/>
+                    <TableColumn fx:id="colStatut" text="Statut" prefWidth="130"/>
+                </columns>
+                <placeholder><Label text="Aucun adhérent." styleClass="empty-label"/></placeholder>
+            </TableView>
+        </VBox>
+    </VBox>
+</ScrollPane>

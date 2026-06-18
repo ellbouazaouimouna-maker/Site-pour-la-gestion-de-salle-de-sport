@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.admin.PaiementsController"
+      styleClass="page-content" spacing="16">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="Gestion des Paiements" styleClass="page-title"/>
+        <Label text="Administration du système" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Button text="➕  Enregistrer un paiement" styleClass="btn-primary" onAction="#handleAddPaiement"/>
+        <Button text="🔄  Actualiser" styleClass="btn-secondary" onAction="#handleRefresh"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="🔍  Rechercher..." styleClass="search-field" prefWidth="220" onKeyReleased="#handleSearch"/>
+        <ComboBox fx:id="filterStatut" styleClass="combo-filter" prefWidth="160" onAction="#handleFilter"/>
+    </HBox>
+    <HBox spacing="16">
+        <VBox styleClass="stat-card stat-green" HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="💰" styleClass="stat-icon"/>
+            <Label fx:id="totalEncaisseLabel" text="0 DH" styleClass="stat-number"/>
+            <Label text="Total encaissé" styleClass="stat-label"/>
+        </VBox>
+        <VBox styleClass="stat-card stat-orange" HBox.hgrow="ALWAYS" spacing="4">
+            <Label text="⏳" styleClass="stat-icon"/>
+            <Label fx:id="enAttenteLabel" text="0" styleClass="stat-number"/>
+            <Label text="En attente" styleClass="stat-label"/>
+        </VBox>
+    </HBox>
+    <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="paiementsTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+            <columns>
+                <TableColumn fx:id="colAdherent" text="Adhérent"    prefWidth="160"/>
+                <TableColumn fx:id="colFrais"    text="Frais inscr." prefWidth="110"/>
+                <TableColumn fx:id="colTotal"    text="Total"       prefWidth="100"/>
+                <TableColumn fx:id="colPaye"     text="Payé"        prefWidth="100"/>
+                <TableColumn fx:id="colRestant"  text="Restant"     prefWidth="100"/>
+                <TableColumn fx:id="colStatut"   text="Statut"      prefWidth="110"/>
+                <TableColumn fx:id="colDate"     text="Date"        prefWidth="120"/>
+                <TableColumn fx:id="colActions"  text="Actions"     prefWidth="280"/>
+            </columns>
+            <placeholder><Label text="Aucun paiement trouvé." styleClass="empty-label"/></placeholder>
+        </TableView>
+    </VBox>
+</VBox>

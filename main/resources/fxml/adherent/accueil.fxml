@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.adherent.AccueilController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="24" styleClass="page-content">
+        <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+        <!-- Header titre -->
+        <VBox spacing="4">
+            <Label text="Tableau de bord" style="-fx-font-size:22px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+        </VBox>
+
+        <!-- 3 cartes stats -->
+        <HBox spacing="16">
+            <!-- Activités actives -->
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="10">
+                <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="📅" style="-fx-font-size:22px;"/>
+                    <VBox spacing="2">
+                        <Label fx:id="nbActivitesLabel" text="0" style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                        <Label text="Activités Actives" style="-fx-font-size:12px; -fx-text-fill:#64748b;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Jours restants abonnement -->
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="10">
+                <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="⏱" style="-fx-font-size:22px;"/>
+                    <VBox spacing="2">
+                        <Label fx:id="joursRestantsLabel" text="—" style="-fx-font-size:28px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                        <Label text="Jours restants" style="-fx-font-size:12px; -fx-text-fill:#64748b;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Statut paiement -->
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" spacing="10">
+                <padding><Insets top="22" right="22" bottom="22" left="22"/></padding>
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <Label text="✅" style="-fx-font-size:22px;"/>
+                    <VBox spacing="2">
+                        <Label fx:id="statutPaiementLabel" text="—" style="-fx-font-size:18px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                        <Label text="Statut paiement" style="-fx-font-size:12px; -fx-text-fill:#64748b;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+
+        <!-- Bannière bienvenue -->
+        <VBox styleClass="welcome-banner" spacing="6">
+            <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+            <Label fx:id="welcomeTitleLabel" text="Bienvenue !" style="-fx-font-size:20px; -fx-font-weight:bold; -fx-text-fill:white;"/>
+            <Label fx:id="welcomeSubLabel" text="" style="-fx-font-size:13px; -fx-text-fill:rgba(255,255,255,0.85);"/>
+        </VBox>
+
+        <!-- Prochaines activités -->
+        <VBox styleClass="table-card" spacing="0">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Prochaines Activités" style="-fx-font-size:15px; -fx-font-weight:bold; -fx-text-fill:#0f172a; -fx-padding:0 0 14 0;"/>
+            <VBox fx:id="activitesContainer" spacing="0"/>
+            <Label fx:id="noActivitesLabel" text="Aucune activité inscrite pour le moment."
+                   style="-fx-text-fill:#94a3b8; -fx-font-size:13px; -fx-padding:10 0 0 0;"
+                   visible="false" managed="false"/>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

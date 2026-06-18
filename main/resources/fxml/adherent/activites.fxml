@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.adherent.ActivitesAdherentController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="20" styleClass="page-content">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+        <HBox alignment="CENTER_LEFT">
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label text="Mes Activités" styleClass="page-title"/>
+                <Label fx:id="countLabel" text="" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+            </VBox>
+        </HBox>
+
+        <VBox styleClass="table-card" spacing="0">
+            <!-- En-tête de section -->
+            <HBox alignment="CENTER_LEFT" style="-fx-padding:16 20; -fx-border-color:transparent transparent #f1f5f9 transparent; -fx-border-width:0 0 1 0;">
+                <Label text="Activités Inscrites" styleClass="section-title"/>
+            </HBox>
+            <!-- FlowPane pour les cartes activités -->
+            <FlowPane fx:id="activitesPane" hgap="16" vgap="16" style="-fx-padding:20;"/>
+            <!-- Message vide -->
+            <Label fx:id="emptyLabel"
+                   text="😔  Vous n'êtes inscrit à aucune activité pour le moment."
+                   style="-fx-font-size:13px; -fx-text-fill:#94a3b8; -fx-padding:30; -fx-alignment:CENTER;"
+                   wrapText="true" visible="false" managed="false"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

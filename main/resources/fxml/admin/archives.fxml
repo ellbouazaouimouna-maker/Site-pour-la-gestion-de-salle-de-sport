@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.admin.ArchivesController"
+      styleClass="page-content" spacing="16">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="Archives" styleClass="page-title"/>
+        <Label text="Membres archivés" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Rechercher..." styleClass="search-field" prefWidth="280" onKeyReleased="#handleSearch"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="🔄" styleClass="btn-secondary" onAction="#handleRefresh"/>
+    </HBox>
+    <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="archivesTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+            <columns>
+                <TableColumn fx:id="colNom"     text="Nom complet"   prefWidth="210"/>
+                <TableColumn fx:id="colEmail"   text="Email"         prefWidth="220"/>
+                <TableColumn fx:id="colTel"     text="Téléphone"     prefWidth="140"/>
+                <TableColumn fx:id="colDate"    text="Date archivage" prefWidth="180"/>
+                <TableColumn fx:id="colActions" text="Actions"       prefWidth="280"/>
+            </columns>
+            <placeholder><Label text="Aucun membre archivé." styleClass="empty-label"/></placeholder>
+        </TableView>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="countLabel" text="" styleClass="count-label"/>
+    </HBox>
+</VBox>

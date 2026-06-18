@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.club.controller.auth.RegisterController"
+           styleClass="root-stack">
+    <HBox>
+        <!-- Gauche — même style que login -->
+        <StackPane prefWidth="420" styleClass="login-left-stack">
+            <VBox styleClass="login-left-bg"/>
+            <VBox styleClass="login-left-overlay"/>
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Rejoignez-nous" styleClass="login-hero-title"/>
+                <Label text="Créez votre espace membre" styleClass="login-hero-sub"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Droite — formulaire inscription -->
+        <VBox styleClass="login-right-panel" HBox.hgrow="ALWAYS" alignment="CENTER">
+            <ScrollPane fitToWidth="true" styleClass="scroll-transparent" maxHeight="620">
+                <VBox styleClass="login-form-card" spacing="0" maxWidth="500">
+                    <VBox styleClass="login-form-header" spacing="6">
+                        <Label text="Créer un compte" styleClass="login-form-title"/>
+                        <Label text="Remplissez vos informations personnelles" styleClass="login-form-subtitle"/>
+                    </VBox>
+                    <VBox styleClass="login-form-body" spacing="14">
+                        <HBox spacing="12">
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Prénom" styleClass="field-label"/>
+                                <TextField fx:id="prenomField" promptText="Votre prénom" styleClass="input-field"/>
+                            </VBox>
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Nom" styleClass="field-label"/>
+                                <TextField fx:id="nomField" promptText="Votre nom" styleClass="input-field"/>
+                            </VBox>
+                        </HBox>
+                        <VBox spacing="5">
+                            <Label text="Email" styleClass="field-label"/>
+                            <TextField fx:id="emailField" promptText="votre@email.com" styleClass="input-field"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Téléphone" styleClass="field-label"/>
+                            <TextField fx:id="telephoneField" promptText="06XXXXXXXX" styleClass="input-field"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Date de naissance (JJ/MM/AAAA)" styleClass="field-label"/>
+                            <TextField fx:id="dateNaissanceField" promptText="01/01/2000" styleClass="input-field"/>
+                        </VBox>
+                        <VBox spacing="5">
+                            <Label text="Adresse" styleClass="field-label"/>
+                            <TextField fx:id="adresseField" promptText="Votre adresse" styleClass="input-field"/>
+                        </VBox>
+                        <HBox spacing="12">
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Mot de passe" styleClass="field-label"/>
+                                <PasswordField fx:id="passwordField" promptText="Mot de passe" styleClass="input-field"/>
+                            </VBox>
+                            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                <Label text="Confirmer" styleClass="field-label"/>
+                                <PasswordField fx:id="confirmField" promptText="Confirmer" styleClass="input-field"/>
+                            </VBox>
+                        </HBox>
+                        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" managed="false" visible="false"/>
+                        <Button text="Créer mon compte" styleClass="btn-login-full"
+                                maxWidth="Infinity" onAction="#handleRegister"/>
+                        <Button text="← Retour à la connexion" styleClass="btn-secondary"
+                                maxWidth="Infinity" onAction="#handleBackToLogin"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+        </VBox>
+    </HBox>
+</StackPane>

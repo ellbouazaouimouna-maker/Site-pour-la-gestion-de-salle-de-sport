@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.adherent.PaiementAdherentController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="20" styleClass="page-content">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+        <Label text="Historique des Paiements" styleClass="page-title"/>
+
+        <!-- 3 stat cards -->
+        <HBox spacing="16">
+            <VBox styleClass="stat-card stat-blue" HBox.hgrow="ALWAYS" spacing="6">
+                <Label text="📋" styleClass="stat-icon"/>
+                <Label fx:id="montantTotalLabel" text="—" styleClass="stat-number"/>
+                <Label text="Montant total dû" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-green" HBox.hgrow="ALWAYS" spacing="6">
+                <Label text="✅" styleClass="stat-icon"/>
+                <Label fx:id="montantPayeLabel" text="—" styleClass="stat-number"/>
+                <Label text="Montant payé" styleClass="stat-label"/>
+            </VBox>
+            <VBox styleClass="stat-card stat-orange" HBox.hgrow="ALWAYS" spacing="6">
+                <Label text="⏳" styleClass="stat-icon"/>
+                <Label fx:id="montantRestantLabel" text="—" styleClass="stat-number"/>
+                <Label text="Reste à payer" styleClass="stat-label"/>
+            </VBox>
+        </HBox>
+
+        <!-- Historique style card -->
+        <VBox styleClass="table-card" spacing="0">
+            <HBox alignment="CENTER_LEFT" style="-fx-padding:16 20; -fx-border-color:transparent transparent #f1f5f9 transparent; -fx-border-width:0 0 1 0;">
+                <Label text="Historique des Paiements" styleClass="section-title" HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statutBadge" text="En attente" styleClass="badge-warning"/>
+            </HBox>
+            <GridPane hgap="20" vgap="16" style="-fx-padding:20;">
+                <Label text="Frais d'inscription :" style="-fx-font-weight:bold; -fx-text-fill:#6b7280; -fx-font-size:13px;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="fraisLabel" text="—" style="-fx-text-fill:#0f172a; -fx-font-size:13px;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Tarif activités :" style="-fx-font-weight:bold; -fx-text-fill:#6b7280; -fx-font-size:13px;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="tarifActivitesLabel" text="—" style="-fx-text-fill:#0f172a; -fx-font-size:13px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Dernier paiement :" style="-fx-font-weight:bold; -fx-text-fill:#6b7280; -fx-font-size:13px;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="datePaiementLabel" text="—" style="-fx-text-fill:#0f172a; -fx-font-size:13px;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Notes :" style="-fx-font-weight:bold; -fx-text-fill:#6b7280; -fx-font-size:13px;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label fx:id="notesLabel" text="—" wrapText="true" style="-fx-text-fill:#0f172a; -fx-font-size:13px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+            <Label fx:id="noPaiementLabel"
+                   text="ℹ️ Aucune information de paiement disponible."
+                   style="-fx-font-size:13px; -fx-text-fill:#94a3b8; -fx-padding:20;"
+                   wrapText="true" visible="false" managed="false"/>
+        </VBox>
+    </VBox>
+</ScrollPane>

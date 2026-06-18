@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.club.controller.adherent.ProfilController"
+            fitToWidth="true" styleClass="scroll-transparent">
+    <VBox spacing="20" styleClass="page-content">
+        <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+        <!-- welcomeLabel invisible requis par le contrôleur -->
+        <Label fx:id="welcomeLabel" text="" style="-fx-font-size:0; -fx-opacity:0;" managed="false" visible="false"/>
+
+        <VBox spacing="2">
+            <Label text="Mon Profil" styleClass="page-title"/>
+        </VBox>
+
+        <!-- Card principale profil -->
+        <VBox styleClass="table-card" spacing="0">
+            <padding><Insets top="28" right="28" bottom="28" left="28"/></padding>
+
+            <!-- Avatar + Nom + ID + Badge -->
+            <HBox spacing="20" alignment="CENTER_LEFT">
+                <Label fx:id="avatarBig" text="A" styleClass="profile-avatar-big"/>
+                <VBox spacing="8">
+                    <Label fx:id="nameLabel" text="" style="-fx-font-size:20px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                    <Label fx:id="idMembreLabel" text="" style="-fx-font-size:12px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="roleLabel" text="Adhérent" styleClass="profile-role-badge"/>
+                </VBox>
+            </HBox>
+
+            <Separator style="-fx-padding:0; -fx-margin:18 0;"/>
+
+            <!-- Grille infos style screenshot -->
+            <GridPane hgap="80" vgap="22" style="-fx-padding: 18 0 0 0;">
+                <!-- Ligne 1 : Email | Téléphone -->
+                <VBox spacing="3" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <Label text="✉  Email" style="-fx-font-size:11px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="emailLabel" text="" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                </VBox>
+                <VBox spacing="3" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <Label text="📞  Téléphone" style="-fx-font-size:11px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="telLabel" text="" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                </VBox>
+                <!-- Ligne 2 : Adresse -->
+                <VBox spacing="3" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                    <Label text="📍  Adresse" style="-fx-font-size:11px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="adresseLabel" text="" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                </VBox>
+                <!-- Ligne 3 : Membre depuis | Date naissance -->
+                <VBox spacing="3" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <Label text="📅  Membre depuis" style="-fx-font-size:11px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="dateInscriptionLabel" text="" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                </VBox>
+                <VBox spacing="3" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                    <Label text="🎂  Date de naissance" style="-fx-font-size:11px; -fx-text-fill:#94a3b8;"/>
+                    <Label fx:id="dateNaissLabel" text="" style="-fx-font-size:13px; -fx-font-weight:bold; -fx-text-fill:#0f172a;"/>
+                </VBox>
+                <!-- Lignes cachées pour les champs prénom/nom requis par le contrôleur -->
+                <Label fx:id="prenomLabel" text="" visible="false" managed="false" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label fx:id="nomLabel" text="" visible="false" managed="false" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+        </VBox>
+    </VBox>
+</ScrollPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.admin.AdherentsController"
+      styleClass="page-content" spacing="16">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="Gestion des Adhérents" styleClass="page-title"/>
+        <Label text="Administration du système" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="🔍  Rechercher un adhérent..." styleClass="search-field" prefWidth="300" onKeyReleased="#handleSearch"/>
+        <ComboBox fx:id="filterStatut" styleClass="combo-filter" prefWidth="150"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="➕  Nouvel adhérent" styleClass="btn-primary" onAction="#handleAdd"/>
+        <Button text="🔄" styleClass="btn-secondary" onAction="#handleRefresh"/>
+    </HBox>
+    <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+        <TableView fx:id="adherentsTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+            <columns>
+                <TableColumn fx:id="colId"       text="N° Adhérent"  prefWidth="100"/>
+                <TableColumn fx:id="colNom"      text="Nom"        prefWidth="160"/>
+                <TableColumn fx:id="colEmail"    text="Email"      prefWidth="190"/>
+                <TableColumn fx:id="colTel"      text="Téléphone"  prefWidth="120"/>
+                <TableColumn fx:id="colActivites" text="Activités" prefWidth="130"/>
+                <TableColumn fx:id="colPaiement" text="Paiement"   prefWidth="100"/>
+                <TableColumn fx:id="colStatut"   text="Statut"     prefWidth="100"/>
+                <TableColumn fx:id="colActions"  text="Actions"    prefWidth="280"/>
+            </columns>
+            <placeholder><Label text="Aucun adhérent trouvé." styleClass="empty-label"/></placeholder>
+        </TableView>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="countLabel" text="" styleClass="count-label"/>
+    </HBox>
+</VBox>

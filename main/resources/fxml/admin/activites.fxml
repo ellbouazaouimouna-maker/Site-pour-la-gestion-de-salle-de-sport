@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.club.controller.admin.ActivitesController"
+      styleClass="page-content" spacing="16">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="Gestion des Activités" styleClass="page-title"/>
+        <Label text="Administration du système" style="-fx-text-fill:#94a3b8; -fx-font-size:13px;"/>
+    </VBox>
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Button text="➕  Ajouter une activité" styleClass="btn-primary" onAction="#handleAdd"/>
+        <Button text="🔄" styleClass="btn-secondary" onAction="#handleRefresh"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <TextField fx:id="searchField" promptText="🔍  Rechercher..." styleClass="search-field" prefWidth="240" onKeyReleased="#handleSearch"/>
+        <ComboBox fx:id="filterStatut" styleClass="combo-filter" prefWidth="130"/>
+    </HBox>
+    <VBox styleClass="table-card" VBox.vgrow="ALWAYS">
+       <TableView fx:id="activitesTable" VBox.vgrow="ALWAYS" styleClass="modern-table">
+            <columns>
+                <TableColumn fx:id="colId"          text="#"           prefWidth="40"/>
+                <TableColumn fx:id="colNom"         text="Activité"    prefWidth="130"/>
+                <TableColumn fx:id="colDescription" text="Description" prefWidth="160"/>
+                <TableColumn fx:id="colResponsable" text="Instructeur" prefWidth="130"/>
+                <TableColumn fx:id="colJour"        text="Jour"        prefWidth="90"/>
+                <TableColumn fx:id="colHoraire"     text="Horaire"     prefWidth="100"/>
+                <TableColumn fx:id="colTarif"       text="Tarif"       prefWidth="80"/>
+                <TableColumn fx:id="colStatut"      text="Statut"      prefWidth="90"/>
+                <TableColumn fx:id="colActions"     text="Actions"     prefWidth="280"/>
+            </columns>
+            <placeholder><Label text="Aucune activité trouvée." styleClass="empty-label"/></placeholder>
+        </TableView>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT">
+        <Label fx:id="countLabel" text="" styleClass="count-label"/>
+    </HBox>
+</VBox>
